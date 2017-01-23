@@ -1,0 +1,20 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": true,
+  "hostname": "vmlinux",
+  "port": "22",
+  "target": "/var/www/html/agresebe",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**",
+    ".tmp/**",
+    "build/**",
+    "node_modules/**",
+    "bower_components/**"
+  ],
+  "username": "asanchez",
+  "password": "asanchez",
+  "transport": "scp",
+  "watch": []
+}

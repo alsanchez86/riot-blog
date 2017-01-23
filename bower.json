@@ -1,0 +1,7 @@
+{
+  "name": "blog_agresebe",
+  "dependencies": {
+    "jquery": "1.9.1",
+    "xstrap": "alsanchez86/xstrap#components"
+  }
+}

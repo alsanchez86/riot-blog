@@ -1,0 +1,29 @@
+{
+  "name": "Blog_Agresebe",
+  "license": "MIT",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alsanchez86/blogagresebe.git"
+  },
+  "css": "./css/",
+  "js": "./js/",
+  "bower_components": "./bower_components/",
+  "dist": "./dist/",
+  "tmp": "./.tmp/",
+  "scripts": {
+    "test": "npm run eslint && grunt test"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-less": "*",
+    "grunt-concat-css": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "less": "*",
+    "less-plugin-autoprefix": "*"
+  }
+}
