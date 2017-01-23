@@ -1,2 +1,1 @@
-# riot-blog
-Blog Riotjs
+# Riot Blog
