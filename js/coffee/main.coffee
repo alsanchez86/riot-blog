@@ -54,12 +54,8 @@ xs = () ->
 # RiotControl.addStore(searchStore)
 # riot.mount '*', globalConf
 
-# router.routes([
-# new Router.Route({tag: 'user', path: '/user/:id'}), // Named paths
-# new Router.DefaultRoute({tag: 'users'})
-# ])
-
 riot.mount "*"
-router.start()
+route.stop()
+route.start()
 
 # searchStore.getSearch() => self.store.init() en <oxe-news>
