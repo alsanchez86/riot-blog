@@ -89,6 +89,7 @@ module.exports = function(grunt) {
             // lib
             '<%= pkg.bower_components %>jquery/jquery.min.js', // [v < 2]
             '<%= pkg.node_modules %>riot/riot.min.js',
+            '<%= pkg.node_modules %>riot-route/dist/route.min.js',
 
             // xstrap components
             // '<%= pkg.bower_components %>xstrap/dropdowns/js/dropdown.js',                      // dropdown

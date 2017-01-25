@@ -1,7 +1,5 @@
 <blog>
-	<div>
-		BLOG
-	</div>
+	<div data-is="route"></div>
 
 	<script>
   </script>

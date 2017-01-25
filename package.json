@@ -25,6 +25,8 @@
     "grunt-contrib-watch": "*",
     "grunt-riot": "*",
     "grunt-contrib-less": "*",
+    "riot": "*",
+    "riot-route": "*",
     "less": "*",
     "less-plugin-autoprefix": "*"
   }
