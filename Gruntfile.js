@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  // grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // grunt.loadNpmTasks('grunt-riot');
   // grunt.loadNpmTasks('grunt-string-replace');
@@ -131,9 +131,9 @@ module.exports = function(grunt) {
           interrupt: false,
         },
         files: [
-          '<%= pkg.css %>less/*.less' // main.less
-          // './js/coffee/*.coffee', // main.coffee
-          // './js/tags/*.tag'
+          '<%= pkg.css %>less/*.less',
+          '<%= pkg.css %>tags/*.tag',
+          '<%= pkg.css %>coffee/*.coffee'
         ]
       }
     }
