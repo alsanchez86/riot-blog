@@ -1,4 +1,4 @@
-<filter>
+<facet-search-applied>
     <button class="tag" type="button" onclick="{delete}">
         {item}
         <small>search</small>
@@ -17,4 +17,4 @@
 
 	<style scoped>
     </style>
-</filter>
+</facet-search-applied>

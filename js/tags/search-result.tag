@@ -4,32 +4,30 @@
             <!-- {dateLabel}: -->
             <span class="icomoon icomoon-calendar"></span>
             &nbsp;
-            <strong>{item.date}</strong>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <!-- {authorLabel}:&nbsp; -->
-            <span class="icomoon icomoon-user"></span>
-            &nbsp;
-            <strong>{item.author}</strong>
+            <strong>{item.date}</strong>            
         </p>
 
         <div class="row">
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-                <img class="img-responsive img-responsive-center" src="http://ximg.es/300x400/CCC/fff">
+            <div if="{visible()}" class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                <a href="{item.url}">
+                    <img class="img-responsive img-responsive-max" src="{item.thumb}" alt="{item.title}" title="{item.title}">
+                </a>
             </div>
 
-            <div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
+            <div class="{"col-xs-8 col-sm-9 col-md-9 col-lg-9": visible(), "col-xs-12": !visible()}">
                 <header>
                     <h3>
-                        <a href="{item.url}">{item.title}</a>
+                        <a href="{item.url}">
+                            {item.title}
+                        </a>
+
                         <span if="{type}">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                         <small if="{type}">{type}</small>
                     </h3>
                 </header>
 
                 <p class="text-indent">
-                    <!-- <post-raw content="{item.text}"></post-raw> -->
-                    {item.text}
-
+                    <raw content="{item.entradilla}"/>
                     <a href="{item.url}">
                         <i>[..]</i>
                     </a>
@@ -48,6 +46,11 @@
         self.dateLabel      = "FECHA";
         self.authorLabel    = "AUTOR";
         self.type           = "";
+
+        this.visible = function() {
+
+            return self.item.thumb != "" && self.item.thumb != "/404.html" && self.item.thumb != null;
+        }.bind(this);
 
         self.on("update", function(){
 

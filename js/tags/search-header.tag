@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                    <select class="form-control" onchange="{setPageSize}">
+                    <select if="{visible()}" class="form-control" onchange="{setPageSize}">
                         <option each="{item, i in options}" value="{item}" __selected="{selected(item)}">
                             {printPageSizeText(item)}
                         </option>
@@ -48,6 +48,11 @@
             $(self.inputSearch).val("");
             if (!inputVal || inputVal == '') return false;
             self.store.addFilter(inputVal);
+        }.bind(this);
+
+        this.visible = function() {
+
+            return self.totalSearch > self.options[0];
         }.bind(this);
 
         this.selected = function(item) {

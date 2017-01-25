@@ -11,10 +11,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  // grunt.loadNpmTasks('grunt-riot');
+  grunt.loadNpmTasks('grunt-riot');
   // grunt.loadNpmTasks('grunt-string-replace');
+
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -65,17 +66,17 @@ module.exports = function(grunt) {
     },
 
     // riot tags
-    // riot: {
-    //     options: {
-    //       concat: true
-    //     },
-    //     task: {
-    //       src: [
-    //         './js/tags/*.tag',
-    //       ],
-    //       dest: '<%= pkg.tmp %>tags.js',
-    //     }
-    // },
+    riot: {
+        options: {
+          concat: true
+        },
+        task: {
+          src: [
+            '<%= pkg.js %>tags/*.tag',
+          ],
+          dest: '<%= pkg.tmp %>tags.js',
+        }
+    },
 
     // concatenar los ficheros js
     concat: {
@@ -87,23 +88,26 @@ module.exports = function(grunt) {
           src: [
             // lib
             '<%= pkg.bower_components %>jquery/jquery.min.js', // [v < 2]
-            // '<%= pkg.bower_components %>riot.min.js',
+            '<%= pkg.node_modules %>riot/riot.min.js',
+
             // xstrap components
-              // '<%= pkg.bower_components %>xstrap/dropdowns/js/dropdown.js',                      // dropdown
-              '<%= pkg.bower_components %>xstrap/offcanvas/js/ie10-viewport-bug-workaround.js',  // offcanvas-ie10
-              '<%= pkg.bower_components %>xstrap/offcanvas/js/offcanvas.js',                     // offcanvas
-              // '<%= pkg.bower_components %>xstrap/transitions/js/transition.js',                 // transitions
-              // '<%= pkg.bower_components %>xstrap/collapse/js/collapse.js',                       // collapse
-              // '<%= pkg.bower_components %>scrollspy/js/scrollspy.js',        // scrollspy
-              // '<%= pkg.bower_components %>affix/js/affix.js',                // affix
-              // '<%= pkg.bower_components %>tooltips/js/tooltip.js',           // tooltip
-              // '<%= pkg.bower_components %>popovers/js/popover.js',           // popover
-              // '<%= pkg.bower_components %>forms/js/forms.js',                // forms
-              // '<%= pkg.bower_components %>datepicker/js/datepicker.js',      // datepicker
-              // '<%= pkg.bower_components %>typeahead/js/typeahead.js',        // typeahead
-              // '<%= pkg.bower_components %>lazy-sizes/js/lazysizes.min.js',   // lazy sizes
+            // '<%= pkg.bower_components %>xstrap/dropdowns/js/dropdown.js',                      // dropdown
+            '<%= pkg.bower_components %>xstrap/offcanvas/js/ie10-viewport-bug-workaround.js',  // offcanvas-ie10
+            '<%= pkg.bower_components %>xstrap/offcanvas/js/offcanvas.js',                     // offcanvas
+            // '<%= pkg.bower_components %>xstrap/transitions/js/transition.js',                 // transitions
+            // '<%= pkg.bower_components %>xstrap/collapse/js/collapse.js',                       // collapse
+            // '<%= pkg.bower_components %>scrollspy/js/scrollspy.js',        // scrollspy
+            // '<%= pkg.bower_components %>affix/js/affix.js',                // affix
+            // '<%= pkg.bower_components %>tooltips/js/tooltip.js',           // tooltip
+            // '<%= pkg.bower_components %>popovers/js/popover.js',           // popover
+            // '<%= pkg.bower_components %>forms/js/forms.js',                // forms
+            // '<%= pkg.bower_components %>datepicker/js/datepicker.js',      // datepicker
+            // '<%= pkg.bower_components %>typeahead/js/typeahead.js',        // typeahead
+            // '<%= pkg.bower_components %>lazy-sizes/js/lazysizes.min.js',   // lazy sizes
+
             // tags
             '<%= pkg.tmp %>tags.js',
+
             // all coffee files compiled
             '<%= pkg.tmp %>all_coffee.js',
           ],
@@ -132,16 +136,14 @@ module.exports = function(grunt) {
         },
         files: [
           '<%= pkg.css %>less/*.less',
-          '<%= pkg.css %>tags/*.tag',
-          '<%= pkg.css %>coffee/*.coffee'
+          '<%= pkg.js %>tags/*.tag',
+          '<%= pkg.js %>coffee/*.coffee'
         ]
       }
     }
   });
 
-  grunt.registerTask('prueba', ["less"]);
-  grunt.registerTask('dev', ["coffee", "riot", "less", "concat"]);
-  grunt.registerTask('prod', ["dev", "cssmin", "uglify"]);
-
-  grunt.registerTask('default', ["prueba", "cssmin", "coffee", "concat", "uglify"]);
+  grunt.registerTask("dev", ["less", "riot", "coffee", "concat"]);
+  grunt.registerTask("prod", ["dev", "cssmin", "uglify"]);
+  grunt.registerTask("default", ["prod"]);
 };

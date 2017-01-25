@@ -28,7 +28,6 @@ bootstrap = () ->
     nua       = navigator.userAgent
     isAndroid = (nua.indexOf ('Mozilla/5.0') > -1 && nua.indexOf ('Android ') > -1 && nua.indexOf ('AppleWebKit') > -1 && nua.indexOf ('Chrome') == -1)
 
-
 responsive = () ->
     width = $window.width()
 
@@ -51,8 +50,10 @@ xs = () ->
 
 # searchStore = new SearchStore
 # globalConf  = 'store': searchStore
-#
+
 # RiotControl.addStore(searchStore)
 # riot.mount '*', globalConf
+
+riot.mount "*"
 
 # searchStore.getSearch() => self.store.init() en <oxe-news>

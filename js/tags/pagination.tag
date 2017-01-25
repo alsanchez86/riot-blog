@@ -22,9 +22,9 @@
 	<script>
 		var self = this;
 
-		self.store    = searchStore;
-        self.items    = [];
-        self.initPage = 1;
+		self.store      = searchStore;
+        self.items      = [];
+        self.initPage   = 1;
 
         this.visible = function() {
 

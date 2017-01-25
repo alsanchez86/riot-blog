@@ -7,9 +7,10 @@
 
 	<script>
         var self = this;
-        self.store  = searchStore;
-        self.name   = "";
-        self.type   = "";
+        self.store      = searchStore;
+        self.name       = "";
+        self.type       = "";
+        self.printType  = self.type != 'year' ? self.type.substring(1) : self.type;
 
         self.on('update', function () {
 
@@ -25,6 +26,8 @@
                     self.type = facetLabels[self.item.facet];
                 }
             }
+
+            self.printType = self.type != 'year' ? self.type.substring(1) : self.type;
         });
 
         this.delete = function() {

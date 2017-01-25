@@ -1,15 +1,21 @@
-<filters>
+<facet-applieds>
 	<div class="applied-tags" if="{filtersApplied()}">
-		<h4 class="applied-tags-title">Filtros aplicados:</h4>
+		<h4 class="applied-tags-title hidden-xs">Filtros aplicados:</h4>
 
+		<!-- btn resetear filtros -->
 		<button class="btn-reset-tags" type="button" onclick="{resetFilters}">
 			{opts.clearfilter}
 			<span class="glyphicon glyphicon-remove-sign"></span>
 		</button>
+		<!-- / btn resetear filtros -->
 
-		<filter each="{item, i in store.filters}" data="{this}"></filter>
-
+		<!-- faceta aplicada -->
 		<facet-applied each="{item, i in store.facetFilters}" data="{this}"></facet-applied>
+		<!-- / faceta aplicada -->
+
+		<!-- faceta tipo búsqueda aplicada -->
+		<facet-search-applied each="{item, i in store.filters}" data="{this}"></facet-search-applied>
+		<!-- / faceta tipo búsqueda aplicada -->
 	</div>
 
 	<script>
@@ -34,4 +40,4 @@
 
     <style scoped>
     </style>
-</filters>
+</facet-applieds>

@@ -31,6 +31,21 @@ class SearchStore
         @currentPage = 1
         @getSearch()
         @
+    addMultipleFacetFilter: (items) ->
+        aux = false
+        for facet, i in items.facets
+            facetFilter =
+                "facet": facet.facet
+                "value": if facet.type == "" then facet.name else facet.name + "|" + facet.type
+
+            for filter, i in @facetFilters
+                if facet.value == facetFilter.value && facet.facet == facetFilter.facet
+                    return @
+
+            @facetFilters.push facetFilter
+        @currentPage = 1
+        @getSearch()
+        @
     # on init get current position
     resetFilters: () ->
         @filters = []
@@ -57,6 +72,11 @@ class SearchStore
             if facet.value == filter.value
                 @facetFilters.splice(i,1)
                 break
+    deleteAllFilters: () ->
+        @filters        = []
+        @facetFilters   = []
+        @currentPage    = 1
+        @
     setPageSize: (@pageSize) ->
         @currentPage = 1
         @getSearch()

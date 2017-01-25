@@ -9,6 +9,7 @@
   "css": "./css/",
   "js": "./js/",
   "bower_components": "./bower_components/",
+  "node_modules": "./node_modules/",
   "dist": "./dist/",
   "tmp": "./.tmp/",
   "scripts": {
@@ -16,13 +17,14 @@
   },
   "devDependencies": {
     "grunt": "*",
-    "grunt-contrib-less": "*",
     "grunt-concat-css": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-coffee": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
+    "grunt-riot": "*",
+    "grunt-contrib-less": "*",
     "less": "*",
     "less-plugin-autoprefix": "*"
   }
