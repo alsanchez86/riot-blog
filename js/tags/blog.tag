@@ -2,7 +2,7 @@
 	<virtual data-is="{page.id}"></virtual>
 
 	<script>
-    var self = this;
+    self = this
 
     self.data = [
       {id: "list"},

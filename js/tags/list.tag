@@ -20,44 +20,28 @@
 	</section>
 
 	<script>
-	var self = this
-	self.data = []
-	self.url = "http://blog.agresebe.com/api/posts"
+		self = this
 
-	self.on('mount', function() {
-		Request();
-	})
+		self.data = []
+		self.url = "http://blog.agresebe.com/api/posts"
 
-	function Request() {
-		// https://zinoui.com/blog/cross-domain-ajax-request
-		// XMLHttpRequest
-		var xhr = new XMLHttpRequest();
+		self.on('mount', function() {
+			self.Request();
+		})
 
-		xhr.open("GET", self.url, true);
-		xhr.withCredentials = true;
+		self.Request = function() {
+			var xhr = new XMLHttpRequest();
 
-		xhr.onload = function () {
-			// console.log(xhr.responseText);
-			self.data = JSON.parse(xhr.responseText)
-			self.update()
-		};
+			xhr.open("GET", self.url, true);
+			xhr.withCredentials = true;
 
-		xhr.send();
+			xhr.onload = function () {
+				self.data = JSON.parse(xhr.responseText)
+				self.update()
+			};
 
-		// $.ajax({
-		// 	url: "http://blog.agresebe.com/api/posts",
-		// 	// data: myData,
-		// 	type: 'GET',
-		// 	crossDomain: true,
-		// 	dataType: 'jsonp',
-		// 	xhrFields: {
-		// 		withCredentials: true
-	// 		},
-		// 	success: function() {
-		// 		alert("Success");
-		// 	}
-		// });
-	}
+			xhr.send();
+		}
 	</script>
 
 	<style></style>

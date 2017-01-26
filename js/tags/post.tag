@@ -4,7 +4,7 @@
 	</div>
 
 	<script>
-		var self = this;
+		var self = this
   </script>
 
   <style scoped>

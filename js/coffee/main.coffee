@@ -48,14 +48,6 @@ xs = () ->
 ###### RIOT #######
 ###################
 
-# searchStore = new SearchStore
-# globalConf  = 'store': searchStore
-
-# RiotControl.addStore(searchStore)
-# riot.mount '*', globalConf
-
 riot.mount "*"
 route.stop()
 route.start()
-
-# searchStore.getSearch() => self.store.init() en <oxe-news>
