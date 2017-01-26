@@ -1,0 +1,25 @@
+[{
+  "id": 1,
+  "author": {
+    "id": 1,
+    "username": "candidate",
+    "first_name": "Gregor",
+    "last_name": "McCandidate",
+    "posts": "http://blog.agresebe.com/api/users/candidate/posts"
+  },
+  "photos": "http://blog.agresebe.com/api/posts/1/photos",
+  "title": "Title #1",
+  "body": "This is a great post"
+}, {
+  "id": 2,
+  "author": {
+    "id": 1,
+    "username": "candidate",
+    "first_name": "Gregor",
+    "last_name": "McCandidate",
+    "posts": "http://blog.agresebe.com/api/users/candidate/posts"
+  },
+  "photos": "http://blog.agresebe.com/api/posts/2/photos",
+  "title": "Title #2",
+  "body": "Another thing I wanted to share"
+}]

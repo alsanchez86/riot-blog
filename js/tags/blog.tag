@@ -10,7 +10,7 @@
 			{id: "panel"}
     ]
 
-		// default page
+		// default page: list
     self.page = self.data[0]
 
     route(function(id) {

@@ -1,37 +1,64 @@
 <list>
-	<div each={item, i in data}>
-		{item}
-	</div>
+	<section>
+		<header>
+			<h1>Posts</h1>
+		</header>
+
+		<article each={item, i in data}>
+			<header>
+				<h3>{item.title}</h3>
+			</header>
+
+			<p>{item.body}</p>
+
+			<post-photos data="{item.photos}"></post-photos>
+
+			<footer>
+				<p>{item.author.firstName} {item.author.lastName}</p>
+			</footer>
+		</article>
+	</section>
 
 	<script>
-		var self = this
-		self.data = []
+	var self = this
+	self.data = []
+	self.url = "http://blog.agresebe.com/api/posts"
 
-		xmlhttp = new XMLHttpRequest()
-		url = "http://blog.agresebe.com/api/posts?format=json";
+	self.on('mount', function() {
+		Request();
+	})
 
-		xmlhttp.onreadystatechange = function() {
-    	if (this.readyState == 4 && this.status == 200) {
-        var myArr = JSON.parse(this.responseText);
-        myFunction(myArr);
-    	}
+	function Request() {
+		// https://zinoui.com/blog/cross-domain-ajax-request
+		// XMLHttpRequest
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("GET", self.url, true);
+		xhr.withCredentials = true;
+
+		xhr.onload = function () {
+			// console.log(xhr.responseText);
+			self.data = JSON.parse(xhr.responseText)
+			self.update()
 		};
-		xmlhttp.open("GET", url, true);
-		xmlhttp.send();
 
-		function myFunction(arr) {
-    	var out = "";
-    	var i;
-    	for(i = 0; i < arr.length; i++) {
-        out += '<a href="' + arr[i].url + '">' +
-        arr[i].display + '</a><br>';
-    	}
-			console.log(out)
+		xhr.send();
 
-    // document.getElementById("id01").innerHTML = out;
+		// $.ajax({
+		// 	url: "http://blog.agresebe.com/api/posts",
+		// 	// data: myData,
+		// 	type: 'GET',
+		// 	crossDomain: true,
+		// 	dataType: 'jsonp',
+		// 	xhrFields: {
+		// 		withCredentials: true
+	// 		},
+		// 	success: function() {
+		// 		alert("Success");
+		// 	}
+		// });
 	}
-  </script>
+	</script>
 
-  <style>
-  </style>
+	<style></style>
 </list>
