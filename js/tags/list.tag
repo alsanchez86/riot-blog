@@ -11,10 +11,10 @@
 
 			<p>{item.body}</p>
 
-			<post-photos data="{item.photos}"></post-photos>
+			<post-photos if={item.photos} data="{item.photos}" post={item.id}></post-photos>
 
 			<footer>
-				<p>{item.author.firstName} {item.author.lastName}</p>
+				<p>{item.author.first_name} {item.author.last_name}</p>
 			</footer>
 		</article>
 	</section>
@@ -34,13 +34,12 @@
 
 			xhr.open("GET", self.url, true);
 			xhr.withCredentials = true;
+			xhr.send();
 
 			xhr.onload = function () {
 				self.data = JSON.parse(xhr.responseText)
 				self.update()
 			};
-
-			xhr.send();
 		}
 	</script>
 

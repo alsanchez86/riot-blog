@@ -1,5 +1,5 @@
 <post-photos>
-  <div if={url} class="row">
+  <div name={opts.post} class="row">
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" each={photo, i in photos}>
       <img class="img-responsive img-responsive-max" src="{self.domain}{photo.image}">
     </div>
@@ -21,13 +21,14 @@
 
   		xhr.open("GET", self.url, true);
   		xhr.withCredentials = true;
+      xhr.send();
 
   		xhr.onload = function () {
   			self.photos = JSON.parse(xhr.responseText)
+
+        console.log(self.photos);
   			self.update()
   		};
-
-  		xhr.send();
   	}
   </script>
 
