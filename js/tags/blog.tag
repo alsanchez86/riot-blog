@@ -2,19 +2,18 @@
 	<virtual data-is="{page.id}"></virtual>
 
 	<script>
-    self = this
+    var self = this
 
-    self.data = [
+    self.pages = [
       {id: "list"},
-      {id: "post"},
 			{id: "panel"}
     ]
 
 		// default page: list
-    self.page = self.data[0]
+    self.page = self.pages[0]
 
     route(function(id) {
-      self.page = self.data.filter(function(r) { return r.id == id })[0] || self.data[0]
+      self.page = self.pages.filter(function(r) { return r.id == id })[0] || self.pages[0]			
       self.update()
     })
   </script>
