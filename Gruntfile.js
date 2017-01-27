@@ -57,8 +57,6 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= pkg.tmp %>all_coffee.js': [
-              // './js/coffee/searchstore.coffee',
-              // './js/coffee/riotcontrol.coffee',
               '<%= pkg.js %>coffee/main.coffee',
             ]
         }
@@ -92,19 +90,10 @@ module.exports = function(grunt) {
             '<%= pkg.node_modules %>riot-route/dist/route.min.js',
 
             // xstrap components
-            // '<%= pkg.bower_components %>xstrap/dropdowns/js/dropdown.js',                      // dropdown
-            '<%= pkg.bower_components %>xstrap/offcanvas/js/ie10-viewport-bug-workaround.js',  // offcanvas-ie10
-            '<%= pkg.bower_components %>xstrap/offcanvas/js/offcanvas.js',                     // offcanvas
-            // '<%= pkg.bower_components %>xstrap/transitions/js/transition.js',                 // transitions
-            // '<%= pkg.bower_components %>xstrap/collapse/js/collapse.js',                       // collapse
-            // '<%= pkg.bower_components %>scrollspy/js/scrollspy.js',        // scrollspy
-            // '<%= pkg.bower_components %>affix/js/affix.js',                // affix
-            // '<%= pkg.bower_components %>tooltips/js/tooltip.js',           // tooltip
-            // '<%= pkg.bower_components %>popovers/js/popover.js',           // popover
-            // '<%= pkg.bower_components %>forms/js/forms.js',                // forms
-            // '<%= pkg.bower_components %>datepicker/js/datepicker.js',      // datepicker
-            // '<%= pkg.bower_components %>typeahead/js/typeahead.js',        // typeahead
-            // '<%= pkg.bower_components %>lazy-sizes/js/lazysizes.min.js',   // lazy sizes
+            '<%= pkg.bower_components %>xstrap/offcanvas/js/ie10-viewport-bug-workaround.js',
+            '<%= pkg.bower_components %>xstrap/offcanvas/js/offcanvas.js',
+            '<%= pkg.bower_components %>xstrap/transitions/js/transition.js',
+            '<%= pkg.bower_components %>forms/js/forms.js',
 
             // tags
             '<%= pkg.tmp %>tags.js',
