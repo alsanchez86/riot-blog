@@ -2,7 +2,7 @@
 @import url("vars.less");
 
 // Mixins
-// @import url("@{mixins}gradient.less");
+@import url("@{mixins}gradient.less");
 
 // Components
 @import url("@{path-components}core/less/core.less");
@@ -10,37 +10,21 @@
 @import url("@{path-components}texts/less/texts.less");
 @import url('@{path-components}image/less/image.less');
 @import url('@{path-components}glyphicons/less/glyphicons.less');
-// @import url('@{path-components}breadcrumbs/less/breadcrumbs.less'); // require: glyphicons
-// @import url('@{path-components}panel/less/panel.less');
-// @import url('@{path-components}list-group/less/list-group.less');
 @import url('@{path-components}button/less/button.less');
-// @import url('@{path-components}pagination/less/pagination.less');
-// @import url('@{path-components}embed/less/responsive-embed.less');
-// @import url('@{path-components}forms/less/forms.less');
+@import url('@{path-components}forms/less/forms.less');
 @import url('@{path-components}button-groups/less/button-groups.less');
-// @import url('@{path-components}input-groups/less/input-groups.less');
-// @import url('@{path-components}tables/less/tables.less');
-// @import url('@{path-components}dropdowns/less/dropdowns.less');
 @import url('@{path-components}offcanvas/less/offcanvas.less');
 
-/////
-// @import url('@{path-components}datepicker/less/datepicker.less');
-// @import url('@{path-components}typeahead/less/typeahead.less');
-// @import url('@{path-components}scrollspy/less/scrollspy.less');
-// @import url('@{path-components}affix/less/affix.less');
-// @import url('@{path-components}tooltips/less/tooltip.less');
-// @import url('@{path-components}popovers/less/popovers.less');
-
 // MAIN
-
 // header
 .top-header {
-  .clearfix();
+  .text (@h1-font-family, @h1-font-size, @h1-font-weight, @h1-font-style, @blanco, center, @h1-text-transform, @h1-line-height);
+  // .gradient(@rojo-2, @rojo-3, 75deg, 50%, 80%);
   position: relative;
-  padding: 20px 0;
+  padding: 20px;
 
-  overflow: hidden;
-  background-color: @negro;
+  background-color: @blanco-4;
+  text-align: center;
 }
 
 // menu
@@ -48,16 +32,19 @@
   .space();
   width: 100%;
   // padding: 15px 18px;
-  background-color: @negro;
+  // background-color: @negro;
 
   .btn-group {
     .space(0);
 
     .btn {
-      .button(@blanco, @blanco, @negro, @negro);
+      .button(@negro, @negro-3, @blanco-4, @blanco-3);
       .box-shadow(transparent, 0, 0, 0, 0);
       height: auto;
+      margin-left: 0;
       padding: 8px 5px 8px 5px;
+
+      font-weight: 700;
       // line-height: 160%;
     }
   }
@@ -74,7 +61,7 @@
 .footer {
   .text(@font-base, 12px, 400, normal, @blanco, left, none, 160%);
   padding: 22px 18px 30px;
-  background-color: @negro;
+  background-color: @negro-2;
 
   .footer-links {
     .space(0);
@@ -83,6 +70,63 @@
     a {
       .link(@blanco, @blanco, underline, underline);
     }
+  }
+}
+
+.loading-icon {
+  .space();
+  text-align: center;
+
+  & > img {
+    max-height: 100px;
+  }
+}
+
+// panel
+.panel {
+  width: 400px;
+  margin: auto;
+  padding: 60px 0 80px 0;
+
+  .glyphicon {
+    padding-right: 5px;
+  }
+}
+
+.confirmation {
+  .space();
+  .border(0, @border-radius);
+  padding: 10px;
+  background-color: @verde-4;
+  box-shadow: 0 1px 14px 0 rgba(0,0,0,.1);
+
+  h3 {
+    .space(0);
+    color: @blanco;
+    text-align: center;
+  }
+}
+
+.post {
+  padding: @space 0;
+  border-bottom: 1px dotted @blanco-5;
+
+  h3.post-title {
+
+  }
+
+  div.post-body {
+
+  }
+
+  img.post-photo {
+    .box-shadow(@shadow-color, 0, 2px, 8px, 0);
+  }
+
+  p.post-footer {
+    font-size: 12px;
+    font-style: italic;
+    text-align: right;
   }
 }
 
@@ -148,6 +192,11 @@
 @media (min-width: @screen-lg-min) {}
 // Specials breakpoints
 // XS & SM
-@media (max-width: @screen-sm-max) {}
+@media (max-width: @screen-sm-max) {
+  .panel {
+    width: 100%;
+    padding-top: 30px;
+  }
+}
 // NO XS (todas las resoluciones menos XS)
 @media (min-width: @screen-sm-min) {}

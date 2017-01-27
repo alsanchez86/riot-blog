@@ -4,28 +4,35 @@
 			<h1>Posts</h1>
 		</header>
 
-		<article each={item, i in posts}>
+		<article class="post" each={item, i in posts}>
 			<header>
-				<h3>{item.title}</h3>
+				<h3 class="post-title">{item.title}</h3>
 			</header>
 
-			<p>{item.body}</p>
+			<div class="post-body">
+				<p>{item.body}</p>
+			</div>			
 
 			<div if={item.photos} class="row">
 		    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" each={photo, i in item.photos}>
-					<img class="img-responsive img-responsive-max" src="{domain}{photo.image}">
+					<img class="img-responsive img-responsive-max post-photo" src="{domain}{photo.image}">
 		    </div>
 		  </div>
 
 			<footer>
-				<p>{item.author.first_name} {item.author.last_name}</p>
+				<p class="post-footer">{item.author.first_name} {item.author.last_name}</p>
 			</footer>
 		</article>
+
+		<div hide="{loaded}" class="loading-icon">
+			<img src="./images/cargando-2.gif" alt="Loading...">
+		</div>
 	</section>
 
 	<script>
 		var self = this;
 
+		self.loaded = false;
 		self.posts = [];
 		self.resource = "http://blog.agresebe.com/api/posts";
 		self.domain = "http://blog.agresebe.com/"
@@ -53,9 +60,10 @@
 
 					req.onload = function (event) {
 						data.photos = JSON.parse(event.target.responseText);
+						self.loaded = true;
 						self.update();
 					}
-				});				
+				});
 			};
 		}
 	</script>

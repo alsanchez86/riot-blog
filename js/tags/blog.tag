@@ -13,9 +13,13 @@
     self.page = self.pages[0]
 
     route(function(id) {
-      self.page = self.pages.filter(function(r) { return r.id == id })[0] || self.pages[0]			
+      self.page = self.pages.filter(function(r) { return r.id == id })[0] || self.pages[0]
       self.update()
     })
+
+		route.stop();
+		route.start();
+		route.exec();
   </script>
 
   <style scoped>

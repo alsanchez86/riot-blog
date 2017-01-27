@@ -4,8 +4,23 @@
 
 // colours (http://paletton.com/)
 @blanco: #FFFFFF;
+@blanco-2: #EFEAE1;
+@blanco-3: #FAF6EC;
+@blanco-4: darken(@blanco-2, 2%);
+@blanco-5: darken(@blanco-2, 10%);
 @negro: #473D41;
+@negro-2: #584b4f;
+@negro-3: #66595C; // color font-base
 @gris: #C5C8C6;
+@gris-2: darken(@gris, 5%);
+@verde: #9ED194;
+@verde-2: darken(@verde, 20%);
+@verde-3: darken(@verde, 32%);
+@verde-4: lighten(@verde, 5%);
+@rojo: #E24C38;
+@rojo-2: darken(@rojo, 20%);
+@rojo-3: darken(@rojo, 32%);
+@rojo-4: lighten(@rojo, 5%);
 
 // fonts
 @font-base: 'Verdana', sans-serif;
@@ -119,19 +134,19 @@
 @h4-font-family: @font-title;
 @h5-font-family: @font-title;
 @h6-font-family: @font-title;
-@h1-font-size: 42px;
+@h1-font-size: 34px;
 @h1-font-size-small: @h1-font-size - 2px;
-@h2-font-size: 30px;
+@h2-font-size: 28px;
 @h2-font-size-small: @h2-font-size - 2px;
-@h3-font-size: 23px;
+@h3-font-size: 22px;
 @h3-font-size-small: @h3-font-size - 2px;
-@h4-font-size: 18px;
+@h4-font-size: 16px;
 @h4-font-size-small: @h4-font-size - 2px;
 @h5-font-size: @font-size + 2px;
 @h5-font-size-small: @h5-font-size - 2px;
 @h6-font-size: @font-size;
 @h6-font-size-small: @font-size-small;
-@h1-font-weight: 300;
+@h1-font-weight: 700;
 @h2-font-weight: 400;
 @h3-font-weight: 400;
 @h4-font-weight: 400;
@@ -149,7 +164,7 @@
 @h4-color: @color;
 @h5-color: @color;
 @h6-color: @color;
-@h1-text-transform: @text-transform;
+@h1-text-transform: none;
 @h2-text-transform: @text-transform;
 @h3-text-transform: @text-transform;
 @h4-text-transform: @text-transform;
@@ -161,7 +176,7 @@
 @h4-line-height: 100%;
 @h5-line-height: 100%;
 @h6-line-height: 100%;
-@h1-text-align: center;
+@h1-text-align: left;
 @h2-text-align: @text-align;
 @h3-text-align: @text-align;
 @h4-text-align: @text-align;
@@ -243,26 +258,26 @@
 @button-padding: 0px 10px;
 
 @button-font-family:            @font-family;
-@button-font-size:              @font-size - 2;
-@button-font-weight:            700;
+@button-font-size:              @font-size - 3;
+@button-font-weight:            400;
 @button-font-style:             @font-style;
-@button-color:                  @blanco;
-@button-color-hover:            @blanco;
-@button-background-color:       @negro;
-@button-background-color-hover: @negro;
+@button-color:                  @rojo-3;
+@button-color-hover:            @rojo-2;
+@button-background-color:       @rojo;
+@button-background-color-hover: @rojo-4;
 @button-text-align:             center;
 @button-text-transform:         uppercase;
-@button-letter-spacing: 		  1px;
+@button-letter-spacing: 		    0;
 @button-line-height:            @button-min-height;
 
 @button-border:        0px;
 @button-border-radius: @border-radius;
 
 // shadow
-@button-shadow-color:  	transparent;
+@button-shadow-color:  	@shadow-color;
 @button-shadow-width:  	0px;
-@button-shadow-height:  0px;
-@button-shadow-radius:  0px;
+@button-shadow-height:  2px;
+@button-shadow-radius:  8px;
 @button-shadow-size:  	0px;
 
 // shadow-hover
@@ -333,9 +348,9 @@
 @form-control-font-style:              	@font-style;
 @form-control-color:                   	@color;
 @form-control-background-color:        	@blanco;
-@form-control-border:                  	1px solid @blanco;
+@form-control-border:                  	1px solid @gris;
 @form-control-border-radius:           	@border-radius;
-@form-control-border-color-focus:      	@blanco;
+@form-control-border-color-focus:      	@gris;
 
 @form-control-box-shadow-color:        	transparent;
 @form-control-box-shadow-width:        	0;

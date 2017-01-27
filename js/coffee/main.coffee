@@ -49,5 +49,3 @@ xs = () ->
 ###################
 
 riot.mount "*"
-route.stop()
-route.start()
