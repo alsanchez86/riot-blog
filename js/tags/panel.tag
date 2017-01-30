@@ -1,6 +1,6 @@
 <panel>
 	<div class="panel">
-		<div class="confirmation" show="{complete}">			
+		<div class="confirmation" show="{complete}">
 			<h3>
 				<span class="glyphicon glyphicon-ok"></span>
 				Succefully
@@ -25,16 +25,15 @@
 	<script>
 		var self = this;
 
-		self.title = ""
-		self.body = ""
-		self.sending = false
-
-		self.resource = "http://blog.agresebe.com/api/posts";
+		self.title = "";
+		self.body = "";
+		self.sending = false;
+		self.resource = "http://blog.agresebe.com/api/posts?format=json";
 
 		self.addPost = function () {
-			self.complete = false
+			self.complete = false;
 			self.sending = true;
-			self.data = {}
+			self.data = {};
 			self.title = $.trim($("#post-title").val());
 			self.body = $.trim($("#post-body").val());
 			self.data["title"] = self.title;

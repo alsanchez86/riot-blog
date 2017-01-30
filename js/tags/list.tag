@@ -11,13 +11,7 @@
 
 			<div class="post-body">
 				<p>{item.body}</p>
-			</div>			
-
-			<div if={item.photos} class="row">
-		    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" each={photo, i in item.photos}>
-					<img class="img-responsive img-responsive-max post-photo" src="{domain}{photo.image}">
-		    </div>
-		  </div>
+			</div>
 
 			<footer>
 				<p class="post-footer">{item.author.first_name} {item.author.last_name}</p>
@@ -34,8 +28,8 @@
 
 		self.loaded = false;
 		self.posts = [];
-		self.resource = "http://blog.agresebe.com/api/posts";
-		self.domain = "http://blog.agresebe.com/"
+		self.resource = "http://blog.agresebe.com/api/posts?format=json";
+		self.domain = "http://blog.agresebe.com/";
 
 		self.on('mount', function() {
 			self.getPosts();
@@ -46,24 +40,26 @@
 
 			xhr.open("GET", self.resource, true);
 			xhr.withCredentials = true;
+			xhr.setRequestHeader("Accept", "application/json");
+			xhr.setRequestHeader("Content-type", "application/json");
 			xhr.send();
 
 			xhr.onload = function () {
 				self.posts = JSON.parse(xhr.responseText);
+				self.loaded = true;
+				self.update();
 
-				self.posts.forEach(function(data, i) {
-					var req = new XMLHttpRequest();
-
-			    req.open('GET', data.photos, true);
-					req.withCredentials = true;
-					req.send();
-
-					req.onload = function (event) {
-						data.photos = JSON.parse(event.target.responseText);
-						self.loaded = true;
-						self.update();
-					}
-				});
+				// self.posts.forEach(function(data, i) {
+				// 	var req = new XMLHttpRequest();
+				//
+			  //   req.open('GET', data.photos, true);
+				// 	req.withCredentials = true;
+				// 	req.send();
+				//
+				// 	req.onload = function (event) {
+				// 		self.posts[i].photos = JSON.parse(event.target.responseText);
+				// 	}
+				// });
 			};
 		}
 	</script>

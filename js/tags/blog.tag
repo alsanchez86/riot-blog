@@ -2,7 +2,7 @@
 	<virtual data-is="{page.id}"></virtual>
 
 	<script>
-    var self = this
+    var self = this;
 
     self.pages = [
       {id: "list"},
@@ -13,9 +13,9 @@
     self.page = self.pages[0]
 
     route(function(id) {
-      self.page = self.pages.filter(function(r) { return r.id == id })[0] || self.pages[0]
-      self.update()
-    })
+      self.page = self.pages.filter(function(r) { return r.id == id })[0] || self.pages[0];
+      self.update();
+    });
 
 		route.stop();
 		route.start();
