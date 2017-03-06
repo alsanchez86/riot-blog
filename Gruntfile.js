@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   'use strict'
 
   // Force use of Unix newlines
-  grunt.util.linefeed = '\n'
+  grunt.util.linefeed = '\n';
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-concat-css');
@@ -57,53 +57,53 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= pkg.tmp %>all_coffee.js': [
-              '<%= pkg.js %>coffee/main.coffee',
-            ]
+            '<%= pkg.js %>coffee/main.coffee',
+          ]
         }
       },
     },
 
     // riot tags
     riot: {
-        options: {
-          concat: true
-        },
-        task: {
-          src: [
-            '<%= pkg.js %>tags/*.tag',
-          ],
-          dest: '<%= pkg.tmp %>tags.js',
-        }
+      options: {
+        concat: true
+      },
+      task: {
+        src: [
+          '<%= pkg.js %>tags/*.tag',
+        ],
+        dest: '<%= pkg.tmp %>tags.js',
+      }
     },
 
     // concatenar los ficheros js
     concat: {
-        options: {
-          separator: ';',
-        },
-        // unimos los ficheros compilados
-        dist: {
-          src: [
-            // lib
-            '<%= pkg.bower_components %>jquery/jquery.min.js', // [v < 2]
-            '<%= pkg.node_modules %>riot/riot.min.js',
-            '<%= pkg.node_modules %>riot-route/dist/route.min.js',
-
-            // xstrap components
-            '<%= pkg.bower_components %>xstrap/offcanvas/js/ie10-viewport-bug-workaround.js',
-            '<%= pkg.bower_components %>xstrap/offcanvas/js/offcanvas.js',
-            '<%= pkg.bower_components %>xstrap/transitions/js/transition.js',
-            '<%= pkg.bower_components %>forms/js/forms.js',
-
-            // tags
-            '<%= pkg.tmp %>tags.js',
-
-            // all coffee files compiled
-            '<%= pkg.tmp %>all_coffee.js',
-          ],
-          dest: '<%= pkg.dist %>js/main.js',
-        }
+      options: {
+        separator: ';',
       },
+      // unimos los ficheros compilados
+      dist: {
+        src: [
+          // lib
+          '<%= pkg.bower_components %>jquery/jquery.min.js', // [v < 2]
+          '<%= pkg.node_modules %>riot/riot.min.js',
+          '<%= pkg.node_modules %>riot-route/dist/route.min.js',
+
+          // xstrap components
+          '<%= pkg.bower_components %>xstrap/offcanvas/js/ie10-viewport-bug-workaround.js',
+          '<%= pkg.bower_components %>xstrap/offcanvas/js/offcanvas.js',
+          '<%= pkg.bower_components %>xstrap/transitions/js/transition.js',
+          '<%= pkg.bower_components %>forms/js/forms.js',
+
+          // tags
+          '<%= pkg.tmp %>tags.js',
+
+          // all coffee files compiled
+          '<%= pkg.tmp %>all_coffee.js',
+        ],
+        dest: '<%= pkg.dist %>js/main.js',
+      }
+    },
 
     // uglify de js
     uglify: {
